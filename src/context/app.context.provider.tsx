@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { usePhone } from '../hooks/use_phone';
+import { usePhone } from '../hooks/usePhone';
 import { AppContext, AppContextStructure } from './app.context';
 
 type Props = {

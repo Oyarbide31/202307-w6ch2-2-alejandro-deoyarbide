@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { usePhone } from '../hooks/use_phone';
+import { usePhone } from '../hooks/usePhone';
 
 export type AppContextStructure = {
   phoneContext: ReturnType<typeof usePhone>;

@@ -1,3 +1,7 @@
+import { usePhone } from '../../hooks/usePhone';
+
 export function Info() {
-  return <span className="message">Calling...</span>;
+  const { call } = usePhone();
+
+  return <span className="message">{call ? 'Calling...' : 'Not Calling'}</span>;
 }

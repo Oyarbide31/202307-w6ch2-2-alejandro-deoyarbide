@@ -1,32 +1,21 @@
-import { useContext } from 'react';
-import { AppContext } from '../../context/app.context';
+import { usePhone } from '../../hooks/usePhone';
 
 export function Actions() {
-  const {
-    phoneContext: { numbersDisplay: displayState, callPhone, callState },
-  } = useContext(AppContext);
+  const { number, call, callToNumberPhone, hangUp } = usePhone();
 
   return (
     <div className="actions">
-      <span className="number">
-        {displayState && displayState.map((item) => item).join('')}
-      </span>
-
-      {displayState.length < 9 && !callState ? (
-        <>
-          <a onClick={callPhone} href="#" className="call ">
-            Call
-          </a>
-          <a href="#" id="colgar" className="off hang">
-            Hang
-          </a>
-        </>
+      <span className="number">{number}</span>
+      {number.length < 9 && !call ? (
+        <a onClick={callToNumberPhone} href="#" className="call ">
+          Call
+        </a>
       ) : (
         <>
-          <a onClick={callPhone} href="#" className={'call active'}>
+          <a onClick={callToNumberPhone} href="#" className={'call active'}>
             Call
           </a>
-          <a href="#" id="colgar" className="off hang active ">
+          <a href="#" id="colgar" className="hang active" onClick={hangUp}>
             Hang
           </a>
         </>
